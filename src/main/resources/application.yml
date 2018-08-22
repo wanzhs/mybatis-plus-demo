@@ -1,0 +1,47 @@
+server:
+  port: 8700
+#数据库连接池配置  spring boot 2.0 后使用了hikari 连接池
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/wyc?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+#mybatis-plus 配置
+mybatis-plus:
+  configuration:
+  #配置返回数据库(column下划线命名&&返回java实体是驼峰命名)，自动匹配无需as（没开启这个，SQL需要写as： select user_id as userId）
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+  #mapper放置在resource位置
+  mapper-locations: classpath*:mapper/*.xml
+  global-config:
+    db-config:
+      #驼峰下划线转换
+      column-underline: true
+      #表的下划线
+      table-prefix: t_
+      #字段策略 忽略判断
+      field-strategy: ignored
+      #数据库自增
+      id-type: id_worker
+  type-enums-package: com.ga.mybatis.plus.entity
+
+
+
+
+
+
+
+
+
