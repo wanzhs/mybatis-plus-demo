@@ -13,11 +13,12 @@ import org.junit.Test;
 
 public class MpGenerator {
 
-    private static final String OUTPUTDIR = "D:\\project\\znyw\\mybatis-plus\\mybatis-plus-demo\\src\\main\\java";  //生成文件位置
-    private static final String AUTHOR = "lq"; // 作者
-    private static final String DATABASENAME = "wyc"; // 数据库名称
-    private static final String[] TABLEPREFIX = {"t_"};  // 表的前缀
-    private static final String[] TABLENAEM = {"t_driver"}; // 需要生成的表
+//    private static final String OUTPUTDIR = "D:\\project\\znyw\\mybatis-plus\\mybatis-plus-demo\\src\\main\\java";  //生成文件位置
+    private static final String OUTPUTDIR = "D:\\wanzhs";  //生成文件位置
+    private static final String AUTHOR = "wanzhs"; // 作者
+    private static final String DATABASENAME = "shiro"; // 数据库名称
+    private static final String[] TABLEPREFIX = {"t_","test_"};  // 表的前缀
+    private static final String[] TABLENAEM = {"users"}; // 需要生成的表
     private static final String PARENT = "com.mybatis.plus"; // 文件存放的父路径
 
     @Test
@@ -39,7 +40,7 @@ public class MpGenerator {
             dsc.setDbType(DbType.MYSQL);
             dsc.setDriverName("com.mysql.jdbc.Driver");
             dsc.setUsername("root");
-            dsc.setPassword("root");
+            dsc.setPassword("neutra74lize");
             dsc.setUrl("jdbc:mysql://localhost:3306/" + DATABASENAME + "?characterEncoding=utf8");
             // 策略配置
             StrategyConfig strategy = new StrategyConfig();
