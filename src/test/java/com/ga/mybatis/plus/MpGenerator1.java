@@ -11,14 +11,17 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import org.junit.Test;
 
 
-public class MpGenerator {
+public class MpGenerator1 {
 
     //    private static final String OUTPUTDIR = "D:\\project\\znyw\\mybatis-plus\\mybatis-plus-demo\\src\\main\\java";  //生成文件位置
     private static final String OUTPUTDIR = "D:\\wanzhs";  //生成文件位置
     private static final String AUTHOR = "wanzhs"; // 作者
-    private static final String DATABASENAME = "db_charging"; // 数据库名称
-    private static final String[] TABLEPREFIX = {"t_", "test_"};  // 表的前缀
-    private static final String[] TABLENAEM = {"t_coupon", "t_user_coupon"}; // 需要生成的表
+    private static final String DATABASENAME = "db_oauth2"; // 数据库名称
+//    private static final String[] TABLEPREFIX = {"t_", "test_", ""};  // 表的前缀
+    private static final String[] TABLENAEM = {"base_user", "clientdetails",
+            "oauth_access_token", "oauth_approvals", "oauth_client_details", "oauth_client_token",
+            "oauth_code",
+            "oauth_refresh_token"}; // 需要生成的表
     private static final String PARENT = "com.ga.bt.plus"; // 文件存放的父路径
 
     @Test
@@ -39,15 +42,16 @@ public class MpGenerator {
             // 数据源配置
             DataSourceConfig dsc = new DataSourceConfig();
             dsc.setDbType(DbType.MYSQL);
-            dsc.setDriverName("com.mysql.jdbc.Driver");
-            dsc.setUsername("root");
-            dsc.setPassword("root");
-            dsc.setUrl("jdbc:mysql://192.168.2.106:3306/" + DATABASENAME + "?characterEncoding=utf8");
+//            dsc.setDriverName("com.mysql.jdbc.Driver");
+            dsc.setDriverName("com.mysql.cj.jdbc.Driver");
+            dsc.setUsername("wanzhs");
+            dsc.setPassword("123456");
+            dsc.setUrl("jdbc:mysql://192.168.2.221:3306/" + DATABASENAME + "?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT");
             // 策略配置
             StrategyConfig strategy = new StrategyConfig();
             strategy.setCapitalMode(true);// 全局大写命名 ORACLE 注意
             strategy.setEntityLombokModel(true);
-            strategy.setTablePrefix(TABLEPREFIX);// 此处可以修改为您的表前缀
+//            strategy.setTablePrefix(TABLEPREFIX);// 此处可以修改为您的表前缀
             strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略 命名
             strategy.setInclude(TABLENAEM);  //生成表
 
